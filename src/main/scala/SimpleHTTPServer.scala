@@ -23,7 +23,7 @@ object SimpleHTTPServer extends App {
           complete (Map("message" -> s"Greetings only!").toJson.toString)
         } ~
         pathPrefix("greet") {
-          path(Segment) { case(person) =>
+          path(Segment) { case person =>
             get {
               complete {
                 Map("message"->s"Hello $person").toJson.toString

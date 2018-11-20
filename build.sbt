@@ -15,4 +15,4 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.3" % Test,
   "junit" % "junit" % "4.11" % Test
 )
-
+test in assembly := {}
