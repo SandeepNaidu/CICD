@@ -13,6 +13,9 @@ libraryDependencies ++= Seq(
   "org.jsoup" % "jsoup" % "1.8.3",
   "com.twitter" %% "algebird-core" % "0.13.3",
   "org.scalatest" %% "scalatest" % "3.0.3" % Test,
-  "junit" % "junit" % "4.11" % Test
+  "junit" % "junit" % "4.11" % Test,
+  "com.typesafe.akka" %% "akka-testkit" % "2.5.18" % Test,
+  "com.typesafe.akka" %% "akka-http-testkit" % "10.0.6" % Test
 )
+
 test in assembly := {}
