@@ -1,8 +1,12 @@
-name := "CICD"
 
-version := "0.1"
+lazy val root = (project in file(".")).
+  enablePlugins(JavaAppPackaging).
+  settings(
+    name := "CICD",
+    scalaVersion := "2.11.2",
+    version := "1.0"
+  )
 
-scalaVersion := "2.12.7"
 
 libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-spray-json" % "10.0.6",
@@ -18,4 +22,6 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-testkit" % "10.0.6" % Test
 )
 
+
+//enablePlugins(UniversalPlugin)
 test in assembly := {}
