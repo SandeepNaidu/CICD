@@ -6,6 +6,7 @@ services:
 script:
 - sbt ++$TRAVIS_SCALA_VERSION compile test stage
 env:
+  global:
   - DOCKER_USERNAME=spamidiparthi
   - DOCKER_PASSWORD=default
 deploy:
