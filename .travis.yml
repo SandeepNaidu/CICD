@@ -1,16 +1,17 @@
 language: scala
 scala:
-   - 2.11.7
-
+- 2.11.7
 services:
 - docker
-
-#before_install:
-#- docker build -t sandeepnaidu/cicd .
-#- docker run -d -p 127.0.0.1:80:4567 sandeepnaidu/cicd /bin/sh -c "cd /root/cicd; bundle exec foreman start;"
-#- docker ps -a
-#- docker run sandeepnaidu/cicd /bin/sh -c "cd /root/cicd; sbt test" #"bundle exec rake test"
-
 script:
-#- bundle exec rake test
 - sbt ++$TRAVIS_SCALA_VERSION compile test stage
+env:
+  matrix:
+  - secure: XV0XBaTfvVrTskbroPGKghVB+3S+A7B6HnJNsTytir5hRKhnBHZrOUfm3SBjjHwIFoE/nYBrlmKEcuzk3bBTRQB76vg5OEY4uMFsjaOYNyEqSVAKUwfJAxpiSa+KsWJKzVNgE9INnZTfPIBM2VPFM8ASp3qTWIRdT5z7bA6df95XSi1KA12N6t5q15QenjjFxrI7DziceHpyn+ilfKP7g3K6ngHYpcMp2cCeSc9NmziGyaLdhT1oy6s4Q6n6S6ixvZFwzs2HzAeNzF3LUl+p5uneBSF3VqEduboo1tJqk2EaobXy5ZfpBp2uUVCCnIF9zPc4eyFG7Va/rz47Lmz3RZHe/09BrkB+qLC7cy9LL3WywG/bGMehX/9+WwfMu7UMro1hftq7UUF+I0SgfYpiWCFKXZb3AhCgCtq+EzU5ZTM03N3BBrVwjtfLappN011+UcJzXX4Tc488C5y57YJbiB66vSa+rlJqyOHmkXt9GNqqtKKKg3NcrcCHONDNa9VNRAD30RdDXRaxRsaTVhiSbYZh3LVk6IEbIy1mjI62H/IooSx5HsCxyOG27BZTYPNL07SKTCT9jzBzEtoaUQOl4NTQ9fcjHdOP0UIttLTRReZK6lO4gP6chsBmx5GZDtRh8tysmZ/Byrm2G8O6N7/fFB8hCU1XNEB9gf2kYWRqKFo=
+  - secure: TlDht1o9MdoeSrTDDMNWnXuj9dliS9Za4NlT2IwavNnE65kjZ6sGawOr8FlwREOs5srB671vpfOHHR4tyW7O3HOOk45mfoqbc306hprdi2XinDXNUZGeRRLJU79pe6QSajwrgRA/9evPvtG1Xow+PpHFDLQ7ayqS+ZG98qACTJ+YWQvrY4bS+QXv/WZ0s335IWERBFzamQFk42cAph8E80LKyJJjzeCptpBB1Vt4zrf3MXgd6+hYYuAAwaQzglieWe3a3IyNutgFc+43w//cTDMxatt0hHsxaSCXSwLlf+m21ajDPkfYx0djdcW+DS+chV7fc49UjttufXiK6K1KYE3H5v4ieTU24PstmUM7bPSXNUTWvN3faEeXiCgj4lO1I8i5rxc+0+3Z4lMw8rExjp6F3iFHa+4T/yrIPyJQq0wBlH85kNEVb75JJPO+WjOVFsTBMiJ5lTgvlxy6MBujvMFUn6Cz7OLoDBaAvZ/jAYr0ve9znwboeu4ntHzhkEpC15wgxSzW5Mqq4vYjSYwlx6p63A5L8LeAdiELGSBhJtVAnlIwUsFJxwQV/H/uAjdmDaS+Mk4IVoVKQGtzBbpxy7K4UUc9ijmL/T3MQQr+cNfQVe6NSEEYTYSikH0OGo7dRBBxdh3EAGl3kFuGcn2wKv7h3A7AP71HbcIzQ9DUQEs=
+
+deploy:
+  provider: script
+  script: bash docker_push
+  on:
+    branch: master
