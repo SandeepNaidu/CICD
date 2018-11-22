@@ -12,6 +12,6 @@ env:
 
 deploy:
   provider: script
-  script: bash docker_push
+  script: bash dockerpush
   on:
     branch: master
