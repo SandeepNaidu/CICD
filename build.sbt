@@ -1,9 +1,9 @@
 
 lazy val root = (project in file(".")).
-  enablePlugins(JavaAppPackaging).
+  enablePlugins(JavaAppPackaging,UniversalPlugin).
   settings(
     name := "CICD",
-    scalaVersion := "2.11.2",
+    scalaVersion := "2.11.7",
     version := "1.0"
   )
 
@@ -23,5 +23,4 @@ libraryDependencies ++= Seq(
 )
 
 
-//enablePlugins(UniversalPlugin)
 test in assembly := {}
