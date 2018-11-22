@@ -9,8 +9,9 @@ FROM openjdk:8
 #  rm sbt-$SBT_VERSION.deb && \
 #  apt-get update && \
 #  apt-get install sbt
-
-WORKDIR /CICD
-ADD . /CICD
-CMD find .
-CMD target/universal/scripts/bin/cicd
+RUN mkdir /cicd
+COPY . /cicd
+WORKDIR /cicd
+#ADD . /CICD
+#CMD find .
+CMD project/target/universal/scripts/bin/cicd
