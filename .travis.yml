@@ -10,6 +10,7 @@ env:
   - DOCKER_USERNAME=spamidiparthi
   - DOCKER_PASSWORD=default
 deploy:
+  skip_cleanup: true
   provider: script
   script: bash dockerpush
   on:
