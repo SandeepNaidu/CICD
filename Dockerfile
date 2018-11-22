@@ -12,4 +12,5 @@ FROM openjdk:8
 
 WORKDIR /CICD
 ADD . /CICD
+CMD find .
 CMD target/universal/scripts/bin/cicd
