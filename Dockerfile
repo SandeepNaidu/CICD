@@ -1,7 +1,7 @@
 FROM openjdk:8
 
 RUN mkdir /cicd
-COPY . /cicd
+COPY universal/stage/* /cicd
 WORKDIR /cicd
-CMD target/universal/stage/bin/cicd
+CMD bin/cicd
 EXPOSE 8080
